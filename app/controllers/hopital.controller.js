@@ -2,7 +2,7 @@ const db = require("../models");
 const Hopital = db.hopitals;
 const Op = db.Sequelize.Op;
 
-exports.create = (req, res) => {
+  exports.create = (req, res) => {
     // Validate request
     if (!req.body.nom) {
       res.status(400).send({
@@ -13,7 +13,6 @@ exports.create = (req, res) => {
   
     // Create a 
     const hopital = {
-
       nom: req.body.nom,   
       numTel: req.body.numTel,
       adresse:req.body.adresse,

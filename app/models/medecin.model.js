@@ -5,9 +5,9 @@ module.exports = (sequelize, Sequelize) => {
       },  
       hopitalId: {
         type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
+        
         references: {
-          model: "Hopital",
+          model: "hopitals",
           key: "id",
           as: "hopitalId",
         },

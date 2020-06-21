@@ -14,6 +14,7 @@ exports.create = (req, res) => {
     // Create a 
     const medecin = {
       nom: req.body.nom,
+      hopitalId:req.body.hopitalId,
       prenom: req.body.prenom,
       speciality: req.body.speciality,
       numTel: req.body.numTel,
