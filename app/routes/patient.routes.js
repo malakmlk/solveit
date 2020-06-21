@@ -12,7 +12,7 @@ module.exports = app => {
     router.get("/", patients.findAll);
   
     // Retrieve all published patients
-    router.get("/published", patients.findAllPublished);
+   
   
     // Retrieve a single patient with id
     router.get("/:id", patients.findOne);
