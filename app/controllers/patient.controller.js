@@ -16,8 +16,12 @@ const Op = db.Sequelize.Op;
       nom: req.body.nom,
       prenom: req.body.prenom,
       nss:req.body.nss,
-      typeAssurence:req.body.typeAssurance
-      //assure: req.body.published ? req.body.published : false
+      typeAssurence:req.body.typeAssurance,
+      numTel: req.body.numTel,
+      adresse:req.body.adresse,
+      email: req.body.email,
+      dateNaissance: req.body.dateNaissance
+     
     };
   
     // Save Tutorial in the database

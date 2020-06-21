@@ -9,10 +9,21 @@ module.exports = (sequelize, Sequelize) => {
       speciality: {
         type: Sequelize.STRING
       },
-      contact: {
+      numTel: {
+        type: Sequelize.INTEGER
+      },
+      bio: {
         type: Sequelize.STRING
+      },
+      email: {
+        type: Sequelize.STRING
+      },
+      dateNaissance: {
+        type:Sequelize.DATE
+      },
+      adresse: {
+        type:Sequelize.STRING
       }
-      
     });
   
     return Medecin;

@@ -16,7 +16,11 @@ exports.create = (req, res) => {
       nom: req.body.nom,
       prenom: req.body.prenom,
       speciality: req.body.speciality,
-      contact: req.body.contact
+      numTel: req.body.numTel,
+      bio: req.body.bio,
+      email: req.body.email,
+      dateNaissance: req.body.dateNaissance,
+      adresse:req.body.adresse
     };
   
     // Save= in the database

@@ -13,6 +13,18 @@ module.exports = (sequelize, Sequelize) => {
      
       typeAssurance: {
         type: Sequelize.STRING
+      },
+      numTel: {
+        type: Sequelize.INTEGER
+      },
+      adresse: {
+        type:Sequelize.STRING
+      },
+      mail: {
+        type: Sequelize.STRING
+      },
+      dateNaissance: {
+        type:Sequelize.DATE
       }
     });
   
