@@ -2,7 +2,16 @@ module.exports = (sequelize, Sequelize) => {
     const Medecin = sequelize.define("medecin", {
       nom: {
         type: Sequelize.STRING
-      },   
+      },  
+      hopitalId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        references: {
+          model: "Hopital",
+          key: "id",
+          as: "hopitalId",
+        },
+      }, 
       prenom: {
         type: Sequelize.STRING
       },

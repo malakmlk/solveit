@@ -1,53 +1,51 @@
 const db = require("../models");
-const Patient = db.patients;
+const Hopital = db.hopitals;
 const Op = db.Sequelize.Op;
 
-  exports.create = (req, res) => {
+exports.create = (req, res) => {
     // Validate request
-    if (!req.body.nss) {
+    if (!req.body.nom) {
       res.status(400).send({
         message: "Content can not be empty!"
       });
       return;
     }
   
-    // Create a Tutorial
-    const patient = {
-      nom: req.body.nom,
-      prenom: req.body.prenom,
-      nss:req.body.nss,
-      typeAssurence:req.body.typeAssurance,
+    // Create a 
+    const hopital = {
+
+      nom: req.body.nom,   
       numTel: req.body.numTel,
       adresse:req.body.adresse,
       email: req.body.email,
-      dateNaissance: req.body.dateNaissance
+      dateCreation: req.body.dateCreation
      
     };
   
-    // Save Tutorial in the database
-    Patient.create(patient)
+    // Save= in the database
+    Hopital.create(hopital)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while creating the patient."
+            err.message || "Some error occurred while creating the hospital."
         });
       });
   };
   exports.findAll = (req, res) => {
-    const nss = req.query.nss;
-    var condition = nss ? { nss: { [Op.like]: `%${nss}%` } } : null;
+    const nom = req.query.nom;
+    var condition = nom ? { nom: { [Op.like]: `%${nom}%` } } : null;
   
-    Patient.findAll({ where: condition })
+    Hopital.findAll({ where: condition })
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving patients."
+            err.message || "Some error occurred while retrieving hopitals."
         });
       });
   };
@@ -55,13 +53,13 @@ const Op = db.Sequelize.Op;
   exports.findOne = (req, res) => {
     const id = req.params.id;
   
-    Patient.findByPk(id)
+    Hopital.findByPk(id)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving Patient with id=" + id
+          message: "Error retrieving Tutorial with id=" + id
         });
       });
   };
@@ -69,23 +67,23 @@ const Op = db.Sequelize.Op;
   exports.update = (req, res) => {
     const id = req.params.id;
   
-    Patient.update(req.body, {
+    Hopital.update(req.body, {
       where: { id: id }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "patient was updated successfully."
+            message: "hopital was updated successfully."
           });
         } else {
           res.send({
-            message: `Cannot update patient with id=${id}. Maybe patient was not found or req.body is empty!`
+            message: `Cannot update hopital with id=${id}. Maybe hopital was not found or req.body is empty!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error updating patient with id=" + id
+          message: "Error updating hopital with id=" + id
         });
       });
   };
@@ -93,42 +91,40 @@ const Op = db.Sequelize.Op;
   exports.delete = (req, res) => {
     const id = req.params.id;
   
-    Patient.destroy({
+    Hopital.destroy({
       where: { id: id }
     })
       .then(num => {
         if (num == 1) {
           res.send({
-            message: "patient was deleted successfully!"
+            message: "hopital was deleted successfully!"
           });
         } else {
           res.send({
-            message: `Cannot delete patient with id=${id}. Maybe patient was not found!`
+            message: `Cannot delete hopital with id=${id}. Maybe hopital was not found!`
           });
         }
       })
       .catch(err => {
         res.status(500).send({
-          message: "Could not delete patient with id=" + id
+          message: "Could not delete hopital with id=" + id
         });
       });
   };
   exports.deleteAll = (req, res) => {
-    Patient.destroy({
+    Hopital.destroy({
       where: {},
       truncate: false
     })
       .then(nums => {
-        res.send({ message: `${nums} patients were deleted successfully!` });
+        res.send({ message: `${nums} hopitals were deleted successfully!` });
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while removing all patients."
+            err.message || "Some error occurred while removing all hopitals."
         });
       });
   };
 
-  exports.findAllPublished = (req, res) => {
-    
-  };
+ 
