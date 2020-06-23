@@ -1,7 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
     const Patient = sequelize.define("patient", {
       nss: {
-        type: Sequelize.STRING
+        
+        allowNull: false,
+        autoIncrement: true,
+        primaryKey: true,
+        type: Sequelize.INTEGER
       },
      
       nom: {

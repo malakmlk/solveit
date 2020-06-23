@@ -3,7 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
-
+global.__basedir = __dirname;
 var corsOptions = {
   origin: "http://localhost:8081"
 };
@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Welcome to bezkoder application." });
 });
 
-require("./app/routes/medecin.routes")(app);
+require("./app/routes/consultation.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

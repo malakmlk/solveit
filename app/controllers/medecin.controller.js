@@ -129,6 +129,4 @@ exports.create = (req, res) => {
       });
   };
 
-  exports.findAllPublished = (req, res) => {
-   
-  };
+  
