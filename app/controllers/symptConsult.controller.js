@@ -40,16 +40,17 @@ const Op = db.Sequelize.Op;
       });
   };
 
-  exports.findOne = (req, res) => {
-    const id = req.params.id;
+  exports.findbyConsult = (req, res) => {
+    const idConsultation = req.params.idConsultation;
+    var condition = idConsultation ? { idConsultation: { [Op.like]: `%${idConsultation}%` } } : null;
   
-    SymptConsult.findByPk(id)
+    SymptConsult.findAll({where: condition})
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving SymptConsult with id=" + id
+          message: "Error retrieving SymptConsult with id=" + idConsultation
         });
       });
   };

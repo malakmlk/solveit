@@ -13,7 +13,7 @@ module.exports = app => {
    
   
     // Retrieve a single symptConsult with id
-    router.get("/:id", symptConsults.findOne);
+    router.get("/:idConsultation", symptConsults.findbyConsult);
   
    
   
