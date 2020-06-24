@@ -1,5 +1,5 @@
 const db = require("../models");
-const Symptome = db.symptomes;
+const SymptConsult = db.symptConsults;
 const Op = db.Sequelize.Op;
 
   exports.create = (req, res) => {
@@ -7,20 +7,20 @@ const Op = db.Sequelize.Op;
     
   
     // Create a Tutorial
-    const symptome = {
-    
-      description: req.body.description
+    const symptConsult = {
+        idSymptome:req.body.idSymptome,
+        idConsultation:req.body.idConsultation
     };
   
     // Save Tutorial in the database
-    Symptome.create(symptome)
+    SymptConsult.create(symptConsult)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while creating the Symptome."
+            err.message || "Some error occurred while creating the SymptConsult."
         });
       });
   };
@@ -28,14 +28,14 @@ const Op = db.Sequelize.Op;
     const id = req.query.id;
     var condition = id ? { id: { [Op.like]: `%${id}%` } } : null;
   
-    Symptome.findAll({ where: condition })
+    SymptConsult.findAll({ where: condition })
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving symptomes."
+            err.message || "Some error occurred while retrieving symptConsults."
         });
       });
   };
@@ -43,13 +43,13 @@ const Op = db.Sequelize.Op;
   exports.findOne = (req, res) => {
     const id = req.params.id;
   
-    Symptome.findByPk(id)
+    SymptConsult.findByPk(id)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving Symptome with id=" + id
+          message: "Error retrieving SymptConsult with id=" + id
         });
       });
   };
