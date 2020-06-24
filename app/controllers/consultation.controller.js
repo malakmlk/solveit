@@ -4,18 +4,13 @@ const Op = db.Sequelize.Op;
 
   exports.create = (req, res) => {
     // Validate request
-    if (!req.body.nssPatient) {
-      res.status(400).send({
-        message: "Content can not be empty!"
-      });
-      return;
-    }
+    
   
     // Create a Tutorial
     const consultation = {
       observation: req.body.observation,
       idMedecin: req.body.idMedecin,
-      nssPatient: req.body.nssPatient,
+      idPatient: req.body.idPatient,
       ordannance: req.body.ordannance   
      
     };

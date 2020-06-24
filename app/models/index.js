@@ -24,6 +24,7 @@ db.patients = require("./patient.model.js")(sequelize, Sequelize);
 db.hopitals = require("./hopital.model.js")(sequelize, Sequelize);
 db.ficheAnalyses = require("./ficheAnalyse.model.js")(sequelize, Sequelize);
 db.consultations = require("./consultation.model.js")(sequelize, Sequelize);
+db.symptomes = require("./symptome.model.js")(sequelize, Sequelize);
 
 
 
