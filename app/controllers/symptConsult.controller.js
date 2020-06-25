@@ -42,7 +42,7 @@ const Op = db.Sequelize.Op;
 
   exports.findbyConsult = (req, res) => {
     const idConsultation = req.params.idConsultation;
-    var condition = idConsultation ? { idConsultation: { [Op.like]: `%${idConsultation}%` } } : null;
+    var condition = idConsultation ? { idConsultation: { [Op.like]: `${idConsultation}` } } : null;
   
     SymptConsult.findAll({where: condition})
       .then(data => {

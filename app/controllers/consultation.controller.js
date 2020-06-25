@@ -42,6 +42,20 @@ const Op = db.Sequelize.Op;
         });
       });
   };
+  exports.findByIdPatient = (req, res) => {
+    const idPatient = req.params.idPatient;
+    var condition = idPatient ? { idPatient: { [Op.like]: `${idPatient}` } } : null;
+  
+    Consultation.findAll({where: condition})
+      .then(data => {
+        res.send(data);
+      })
+      .catch(err => {
+        res.status(500).send({
+          message: "Error retrieving SymptConsult with id=" + idPatient
+        });
+      });
+  };
 
   exports.findOne = (req, res) => {
     const id = req.params.id;
