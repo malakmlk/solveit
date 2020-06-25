@@ -1,14 +1,14 @@
 module.exports=(sequelize,Sequelize) => {
-    const AttachementConsult = sequelize.define("attachementConsult", {
+    const AttachementSympt = sequelize.define("attachementSympt", {
         comment: {
             type: Sequelize.STRING
           },  
-        idConsultation: {
-            type: Sequelize.INTEGER,  
+        idSymptome: {
+            type: Sequelize.INTEGER,
             references: {
-              model: "consultations",
+              model: "symptomes",
               key: "id",
-              as: "idConsultation",
+              as: "idSymptome",
             },
             allowNull: false,
           }, 
@@ -22,5 +22,5 @@ module.exports=(sequelize,Sequelize) => {
             allowNull: false,
           }, 
     });
-    return AttachementConsult;
+    return AttachementSympt;
 };
