@@ -46,7 +46,7 @@ const Op = db.Sequelize.Op;
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving SymptConsult with id=" + idPatient
+          message: "Error retrieving Signal with id=" + idPatient
         });
       });
   };
