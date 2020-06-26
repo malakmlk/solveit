@@ -1,19 +1,13 @@
 const db = require("../models");
-const SymptConsult = db.symptConsults;
+const AttachementSympt = db.attachementSympts;
 const Op = db.Sequelize.Op;
 
   exports.create = (req, res) => {
-    // Validate request
-    
-  
-    // Create a Tutorial
-    const symptConsult = {
+    const attachementSympt = {
         idSymptome:req.body.idSymptome,
-        idConsultation:req.body.idConsultation
+        idSignal:req.body.idSignal
     };
-  
-    // Save Tutorial in the database
-    SymptConsult.create(symptConsult)
+    AttachementSympt.create(attachementSympt)
       .then(data => {
         res.send(data);
       })
@@ -28,7 +22,7 @@ const Op = db.Sequelize.Op;
     const id = req.query.id;
     var condition = id ? { id: { [Op.like]: `%${id}%` } } : null;
   
-    SymptConsult.findAll({ where: condition })
+    AttachementSympt.findAll({ where: condition })
       .then(data => {
         res.send(data);
       })
@@ -39,17 +33,16 @@ const Op = db.Sequelize.Op;
         });
       });
   };
-  exports.findbyConsult = (req, res) => {
-    const idConsultation = req.params.idConsultation;
-    var condition = idConsultation ? { idConsultation: { [Op.like]: `${idConsultation}` } } : null;
-  
-    SymptConsult.findAll({where: condition})
+  exports.findbySignal = (req, res) => {
+    const idSignal = req.params.idSignal;
+    var condition = idSignal ? { idSignal: { [Op.like]: `${idSignal}` } } : null;
+    AttachementSympt.findAll({where: condition})
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving SymptConsult with id=" + idConsultation
+          message: "Error retrieving AttachementSympt with id=" + idSignal
         });
       });
   };
