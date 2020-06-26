@@ -22,5 +22,5 @@ module.exports=(sequelize,Sequelize) => {
             allowNull: false,
           }, 
     });
-    return AttachementSympt;
+    return AttachementTestRes;
 };

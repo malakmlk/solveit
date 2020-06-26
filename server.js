@@ -16,8 +16,6 @@ app.use(bodyParser.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: true }));
 const db = require("./app/models");
-
-
 db.sequelize.sync();
 // simple route
 app.get("/", (req, res) => {
@@ -25,6 +23,10 @@ app.get("/", (req, res) => {
 });
 
 require("./app/routes/consultation.routes")(app);
+require("./app/routes/attachementTestRes.routes")(app);
+require("./app/routes/attachementConsult.routes")(app);
+require("./app/routes/attachementSympt.routes")(app);
+require("./app/routes/signal.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

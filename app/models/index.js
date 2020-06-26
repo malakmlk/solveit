@@ -26,6 +26,10 @@ db.ficheAnalyses = require("./ficheAnalyse.model.js")(sequelize, Sequelize);
 db.consultations = require("./consultation.model.js")(sequelize, Sequelize);
 db.symptomes = require("./symptome.model.js")(sequelize, Sequelize);
 db.symptConsults=require("./symptConsult.model.js")(sequelize, Sequelize);
+db.signals=require("./signal.model.js")(sequelize, Sequelize);
+db.attachementConsults=require("./attachementConsult.model.js")(sequelize, Sequelize);
+db.attachementSympts=require("./attachementSympt.model.js")(sequelize, Sequelize);
+db.attachementTestRess=require("./attachementTestRes.model.js")(sequelize, Sequelize);
 
 
 module.exports = db;
