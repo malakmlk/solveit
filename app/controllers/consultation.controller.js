@@ -3,10 +3,7 @@ const Consultation = db.consultations;
 const Op = db.Sequelize.Op;
 
   exports.create = (req, res) => {
-    // Validate request
     
-  
-    // Create a Tutorial
     const consultation = {
       observation: req.body.observation,
       idMedecin: req.body.idMedecin,
@@ -15,7 +12,7 @@ const Op = db.Sequelize.Op;
      
     };
   
-    // Save Tutorial in the database
+    
     Consultation.create(consultation)
       .then(data => {
         res.send(data);

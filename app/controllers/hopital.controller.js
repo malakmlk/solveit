@@ -15,6 +15,7 @@ const Op = db.Sequelize.Op;
     const hopital = {
       nom: req.body.nom,   
       numTel: req.body.numTel,
+      idWillaya:req.body.idWillaya,
       adresse:req.body.adresse,
       email: req.body.email,
       dateCreation: req.body.dateCreation

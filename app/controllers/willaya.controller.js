@@ -1,55 +1,48 @@
 const db = require("../models");
-const Symptome = db.symptomes;
+const Willaya = db.willayas;
 const Op = db.Sequelize.Op;
 
   exports.create = (req, res) => {
-    // Validate request
-    
-  
-    // Create a symptome
-    const symptome = {
-    
-      description: req.body.description
+    const willaya = {
+        codeWillaya:req.body.codeWillaya,
+        nom:req.body.nom
     };
   
-    // Save symptome in the database
-    Symptome.create(symptome)
+    Willaya.create(willaya)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while creating the Symptome."
+            err.message || "Some error occurred while creating the Willaya."
         });
       });
   };
   exports.findAll = (req, res) => {
     const id = req.query.id;
     var condition = id ? { id: { [Op.like]: `%${id}%` } } : null;
-  
-    Symptome.findAll({ where: condition })
+    Willaya.findAll({ where: condition })
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
           message:
-            err.message || "Some error occurred while retrieving symptomes."
+            err.message || "Some error occurred while retrieving Willayas."
         });
       });
   };
-
   exports.findOne = (req, res) => {
     const id = req.params.id;
   
-    Symptome.findByPk(id)
+    Medecin.findByPk(id)
       .then(data => {
         res.send(data);
       })
       .catch(err => {
         res.status(500).send({
-          message: "Error retrieving Symptome with id=" + id
+          message: "Error retrieving Willaya with id=" + id
         });
       });
   };

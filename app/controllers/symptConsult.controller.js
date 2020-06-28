@@ -6,13 +6,13 @@ const Op = db.Sequelize.Op;
     // Validate request
     
   
-    // Create a Tutorial
+    // Create a symp
     const symptConsult = {
         idSymptome:req.body.idSymptome,
         idConsultation:req.body.idConsultation
     };
   
-    // Save Tutorial in the database
+    // Save symp in the database
     SymptConsult.create(symptConsult)
       .then(data => {
         res.send(data);
@@ -39,6 +39,7 @@ const Op = db.Sequelize.Op;
         });
       });
   };
+
   exports.findbyConsult = (req, res) => {
     const idConsultation = req.params.idConsultation;
     var condition = idConsultation ? { idConsultation: { [Op.like]: `${idConsultation}` } } : null;

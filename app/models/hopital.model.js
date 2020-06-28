@@ -14,6 +14,15 @@ module.exports = (sequelize, Sequelize) => {
       numTel: {
         type: Sequelize.INTEGER
       },
+      idWillaya: {
+        type: Sequelize.INTEGER,
+        
+        references: {
+          model: "willayas",
+          key: "codeWillaya",
+          as: "idWillaya",
+        },
+      }, 
       adresse: {
         type:Sequelize.STRING
       },

@@ -11,20 +11,22 @@ const Op = db.Sequelize.Op;
       return;
     }
   
-    // Create a Tutorial
     const patient = {
       nom: req.body.nom,
       prenom: req.body.prenom,
       nss:req.body.nss,
       typeAssurence:req.body.typeAssurance,
       numTel: req.body.numTel,
+      sexe:req.body.sexe,
+      autreContactTel:req.body.autreContactTel,
+      autreContactEmail:req.body.autreContactEmail,
       adresse:req.body.adresse,
       email: req.body.email,
-      dateNaissance: req.body.dateNaissance
+      dateNaissance: req.body.dateNaissance,
+      etatCivile:req.body.etatCivile
      
     };
   
-    // Save Tutorial in the database
     Patient.create(patient)
       .then(data => {
         res.send(data);

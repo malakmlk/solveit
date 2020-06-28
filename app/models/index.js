@@ -30,6 +30,7 @@ db.signals=require("./signal.model.js")(sequelize, Sequelize);
 db.attachementConsults=require("./attachementConsult.model.js")(sequelize, Sequelize);
 db.attachementSympts=require("./attachementSympt.model.js")(sequelize, Sequelize);
 db.attachementTestRess=require("./attachementTestRes.model.js")(sequelize, Sequelize);
-
-
+db.maladies=require("./maladie.model.js")(sequelize, Sequelize);
+db.historiqueMédicals=require("./historiqueMedical.model.js")(sequelize, Sequelize);
+db.willayas=require("./willaya.model.js")(sequelize, Sequelize);
 module.exports = db;
