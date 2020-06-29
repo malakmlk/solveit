@@ -16,7 +16,8 @@ const Op = db.Sequelize.Op;
       tension: req.body.tension,
       poid: req.body.poid,
       taille: req.body.taille,
-      ordannance:fs.readFileSync(__basedir + '/resources/static/assets/uploads/' + req.file.filename)
+      ordannance:fs.readFileSync(__basedir + '/resources/static/assets/uploads/ordannances/' + req.file.filename),
+      diagnostic:req.body.diagnostic
       }).then(Consultation => {
         try{
           fs.writeFileSync(__basedir + '/resources/static/assets/tmp/' +Consultation.idPatient,Consultation.ordannace);		

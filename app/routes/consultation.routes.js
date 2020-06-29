@@ -1,10 +1,10 @@
 module.exports = app => {
     const consultations = require("../controllers/consultation.controller.js");
-    const upload = require('../config/upload.config.js');
+    const uploadOrdannance = require('../config/uploadOrdannance.config.js');
     var router = require("express").Router();
   
    
-    router.post("/",upload.single("uploadfile"), consultations.create);
+    router.post("/",uploadOrdannance.single("uploadfile"), consultations.create);
   
    
     router.get("/", consultations.findAll);
