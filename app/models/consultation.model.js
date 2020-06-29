@@ -3,6 +3,9 @@ module.exports = (sequelize, Sequelize) => {
       observation: {
         type: Sequelize.STRING
       },  
+      diagnostic: {
+        type: Sequelize.STRING
+      },
       idMedecin: {
         type: Sequelize.INTEGER,
         
@@ -21,10 +24,18 @@ module.exports = (sequelize, Sequelize) => {
           as: "idPatient",
         },
       }, 
-    
-      ordannance: {
+      tension: {
         type: Sequelize.STRING
       },
+      poid: {
+        type: Sequelize.STRING
+      },
+      taille:{
+        type: Sequelize.STRING
+      },
+      ordannance: {
+        type: Sequelize.BLOB('long')
+      }
      
     });
   

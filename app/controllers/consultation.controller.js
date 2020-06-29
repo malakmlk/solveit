@@ -1,28 +1,33 @@
 const db = require("../models");
+const fs = require('fs');
 const Consultation = db.consultations;
 const Op = db.Sequelize.Op;
 
   exports.create = (req, res) => {
     
-    const consultation = {
+     const consultation ={
+      
+     };
+    
+     Consultation.create({
       observation: req.body.observation,
       idMedecin: req.body.idMedecin,
       idPatient: req.body.idPatient,
-      ordannance: req.body.ordannance   
-     
-    };
-  
-    
-    Consultation.create(consultation)
-      .then(data => {
-        res.send(data);
+      tension: req.body.tension,
+      poid: req.body.poid,
+      taille: req.body.taille,
+      ordannance:fs.readFileSync(__basedir + '/resources/static/assets/uploads/' + req.file.filename)
+      }).then(Consultation => {
+        try{
+          fs.writeFileSync(__basedir + '/resources/static/assets/tmp/' +Consultation.idPatient,Consultation.ordannace);		
+          
+          // exit node.js app
+          res.json({'msg': 'File uploaded successfully!', 'file': req.file});
+        }catch(e){
+          console.log(e);
+          res.json({'err': e});
+        }
       })
-      .catch(err => {
-        res.status(500).send({
-          message:
-            err.message || "Some error occurred while creating the Consultation."
-        });
-      });
   };
   exports.findAll = (req, res) => {
     const id = req.query.id;
