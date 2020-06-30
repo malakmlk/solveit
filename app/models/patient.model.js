@@ -39,6 +39,9 @@ module.exports = (sequelize, Sequelize) => {
       dateNaissance: {
         type:Sequelize.DATE
       },
+      groupage: {
+        type:Sequelize.STRING
+      },
       etatCivile:{
         type: Sequelize.STRING
       },

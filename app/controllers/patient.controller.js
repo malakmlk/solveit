@@ -23,6 +23,7 @@ const Op = db.Sequelize.Op;
       adresse:req.body.adresse,
       email: req.body.email,
       dateNaissance: req.body.dateNaissance,
+      groupage:req.body.groupage,
       etatCivile:req.body.etatCivile
      
     };
