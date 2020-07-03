@@ -8,7 +8,6 @@ const Op = db.Sequelize.Op;
      const consultation ={
       
      };
-    
      Consultation.create({
       observation: req.body.observation,
       idMedecin: req.body.idMedecin,
@@ -16,14 +15,14 @@ const Op = db.Sequelize.Op;
       tension: req.body.tension,
       poid: req.body.poid,
       taille: req.body.taille,
-      ordannance:fs.readFileSync(__basedir + '/resources/static/assets/uploads/ordannances/' + req.file.filename),
+      ordannance:req.file ? fs.readFileSync(__basedir + '/resources/static/assets/uploads/ordannances/' + req.file.filename):null,
       diagnostic:req.body.diagnostic
       }).then(Consultation => {
         try{
-          fs.writeFileSync(__basedir + '/resources/static/assets/tmp/' +Consultation.idPatient,Consultation.ordannace);		
-          
-          // exit node.js app
-          res.json({'msg': 'File uploaded successfully!', 'file': req.file});
+          if(req.file){
+            fs.writeFileSync(__basedir + '/resources/static/assets/tmp/' +Consultation.idPatient,Consultation.ordannace);		
+          }
+          res.json(Consultation);
         }catch(e){
           console.log(e);
           res.json({'err': e});

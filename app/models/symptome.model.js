@@ -1,5 +1,3 @@
-
-
 module.exports=(sequelize,Sequelize) => {
     const Symptome = sequelize.define("symptome", {
         description: {

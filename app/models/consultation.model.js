@@ -8,7 +8,6 @@ module.exports = (sequelize, Sequelize) => {
       },
       idMedecin: {
         type: Sequelize.INTEGER,
-        
         references: {
           model: "medecins",
           key: "id",
@@ -17,7 +16,6 @@ module.exports = (sequelize, Sequelize) => {
       }, 
       idPatient: {
         type: Sequelize.INTEGER,
-        
         references: {
           model: "patients",
           key: "nss",

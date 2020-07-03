@@ -3,12 +3,10 @@ const Symptome = db.symptomes;
 const Op = db.Sequelize.Op;
 
   exports.create = (req, res) => {
-    // Validate request
-    
-  
     // Create a symptome
-    const symptome = {
+    console.log(req.body.description);
     
+    const symptome = {
       description: req.body.description
     };
   
